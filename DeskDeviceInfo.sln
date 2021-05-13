@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeskDeviceInfo", "WindowsFormsApp1\DeskDeviceInfo.csproj", "{242B27DF-8C64-438C-BF03-A088ACBA582B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{242B27DF-8C64-438C-BF03-A088ACBA582B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{242B27DF-8C64-438C-BF03-A088ACBA582B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{242B27DF-8C64-438C-BF03-A088ACBA582B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{242B27DF-8C64-438C-BF03-A088ACBA582B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB58060A-161B-4716-B073-032E1CE06E60}
+	EndGlobalSection
+EndGlobal
