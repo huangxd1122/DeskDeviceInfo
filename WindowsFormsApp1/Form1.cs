@@ -76,7 +76,7 @@ namespace DeskDeviceInfo
 
                 string c = Environment.GetEnvironmentVariable("computername");
                 label1.Text = c;
-                label2.Text = getIPAddress();
+                label2.Text = GetIPAddress();
 
                 this.TransparencyKey = Color.White;
 
@@ -85,8 +85,9 @@ namespace DeskDeviceInfo
                 int SW = rec.Width;
 
                 Location = new Point(SW - Width, 50);
-
+#if !DEBUG
                 CreateStartup();
+#endif    
             }
             catch (Exception)
             {
@@ -94,13 +95,36 @@ namespace DeskDeviceInfo
             }
         }
 
-        private static string getIPAddress()
+        private static string GetIPAddress()
         {
             System.Net.IPAddress addr;    // 获得本机局域网IP地址   
             addr = new System.Net.IPAddress(Dns.GetHostByName(Dns.GetHostName()).AddressList[0].Address);
             return addr.ToString();
+            //List<IPAddress> ipaddressList = GetInternalIP();
+            //for (int i = 0; i < ipaddressList.Count; i++)
+            //{
+            //    return ipaddressList[i].ToString();
+            //}
+            //return "";
         }
 
+        ////获取内网IP
+        //private static List<IPAddress> GetInternalIP()
+        //{
+        //    NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+        //    List<IPAddress> iPAddresses = new List<IPAddress>();
+        //    foreach (NetworkInterface adapter in nics)
+        //    {
+        //        foreach (var uni in adapter.GetIPProperties().UnicastAddresses)
+        //        {
+        //            if (uni.Address.AddressFamily == AddressFamily.InterNetwork)
+        //            {
+        //                iPAddresses.Add(uni.Address);
+        //            }
+        //        }
+        //    }
+        //    return iPAddresses;
+        //}
 
     }
 }
