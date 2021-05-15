@@ -14,10 +14,37 @@ namespace DeskDeviceInfo
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
-            this.BackColor = Color.White;
-
+            this.BackColor = Color.Black;
+            //this.BackColor = Color.FromArgb(255, 255, 254);
+            //this.Opacity = 0.5;
             Load += Form1_Load;
             //FormClosing += Form1_FormClosing;
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string c = Environment.GetEnvironmentVariable("computername");
+                label1.Text = c;
+                label2.Text = GetIPAddress();
+
+                //this.TransparencyKey = Color.FromArgb(255, 255, 254);
+                this.TransparencyKey = Color.Black;
+
+                Rectangle rec = Screen.GetWorkingArea(this);
+
+                int SW = rec.Width;
+
+                Location = new Point(SW - Width, 50);
+#if !DEBUG
+                CreateStartup();
+#endif    
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         protected override CreateParams CreateParams
@@ -69,31 +96,6 @@ namespace DeskDeviceInfo
         }
 
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            try
-            {
-
-                string c = Environment.GetEnvironmentVariable("computername");
-                label1.Text = c;
-                label2.Text = GetIPAddress();
-
-                this.TransparencyKey = Color.White;
-
-                Rectangle rec = Screen.GetWorkingArea(this);
-
-                int SW = rec.Width;
-
-                Location = new Point(SW - Width, 50);
-#if !DEBUG
-                CreateStartup();
-#endif    
-            }
-            catch (Exception)
-            {
-
-            }
-        }
 
         private static string GetIPAddress()
         {
